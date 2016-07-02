@@ -2,8 +2,6 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <html lang="en">
 <head>
-<!-- Este archivo contiene solo HTML ya que es una vista -->
-
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +9,7 @@
 <title>Bootstrap Test</title>
 
 <!-- Bootstrap -->
-<link href="../css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container theme-showcase" role="main">
@@ -23,13 +21,15 @@
 					<form:input path="nombre" class="form-control" id="nombre"/>
 				</div>
 				<div class="form-group">
-					<form:label path="apellido" for="apellido">Cantidad:</form:label>
-					<form:input path="apellido" class="form-control" id="Apellido"/>
+					<form:label path="precio" for="precio">Precio:</form:label>
+					<form:input path="precio" class="form-control" id="precio"/>
+				</div>
+					<form:label path="tipo" for="tipo">Tipo:</form:label>
+				<div class="radio">
+					<form:radiobutton path="tipo" value="INGREDIENTE"/>Ingrediente
 				</div>
 				<div class="radio">
-					<form:label path="apellido" for="apellido">Cantidad:</form:label>
-					<form:input type="radio" path="apellido" value="TipoIngrediente.INGREDIENTE" id="Apellido">ingrediente</form:input>
-					<form:input type="radio" path="apellido" value="TipoIngrediente.CONDIMENTO" id="Apellido">condimento</form:input>
+					<form:radiobutton path="tipo" value="CONDIMENTO"/>Condimento
 				</div>
 				
 				<button type="submit" class="btn btn-default">Agregar</button>

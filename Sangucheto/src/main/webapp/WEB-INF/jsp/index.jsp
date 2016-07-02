@@ -23,7 +23,8 @@
 		</div>
 		<p>
 			<a href="armarSanguche"><button type="button" class="btn btn-lg btn-default">Armar sanguche</button></a>
-			<a href=""><button type="button" class="btn btn-lg btn-default">Alta Ingrediente</button></a>
+			<a href="agregarIngredienteStock"><button type="button" class="btn btn-lg btn-default">Alta Ingrediente</button></a>
+			<a href="verStock"><button type="button" class="btn btn-lg btn-default">Stock Ingrediente</button></a>
 		</p>
 		<p>
 			<button type="button" class="btn btn-xs btn-default">Default</button>
