@@ -18,9 +18,34 @@
 		<div class="jumbotron">
 			<h1>Selecciona los ingredientes</h1>
 			
-			<c:forEach items="${lista}" var="persona">
-				<button type="button" class="btn btn-lg btn-default">${} }</button>
-			</c:forEach>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Precio</th>
+						<th>Tipo</th>
+						<th>Cantidad</th>
+						
+						<th></th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${stock}" var="item">
+						<tr>
+							<td>${item.key.nombre}</td>
+							<td>${item.key.precio}</td>
+							<td>${item.key.tipo}</td>
+							<td>${item.value}</td>
+							<td><td><a href="armarSanguche?ingredientes=${item.key.nombre}&precio=${item.key.precio}"><button type="button" class="btn btn-default">Agregar</button></a></td></td>
+							
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+		<a href="index"><button class="btn btn-default">Volver</button></a>
+			
 			
 		</div>
 			

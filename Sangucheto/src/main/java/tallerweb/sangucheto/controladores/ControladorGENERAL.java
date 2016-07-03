@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import tallerweb.sangucheto.modelo.Ingrediente;
+import tallerweb.sangucheto.modelo.Sanguchetto;
 import tallerweb.sangucheto.modelo.Stock;
 
 
@@ -30,10 +31,28 @@ public class ControladorGENERAL {
 	}
 	
 	@RequestMapping(value = "/armarSanguche", method = RequestMethod.GET)
-	public Model armarSanguche(Model model) {
+	public ModelAndView armarSanguche(Model model, String ingredientes, Double precio) {
+		
+		Stock stock = Stock.getInstance();
+		Ingrediente ingrediente = new Ingrediente();
+		
+		Map<Ingrediente, Integer> stockIngredientes; 
+		
+		stockIngredientes = stock.obtenerStock();
+		ModelMap modelo = new ModelMap();
+		modelo.put("stock", stockIngredientes);
+		
+		model.addAttribute("ingrediente",ingrediente);
+		
+		Sanguchetto sanguche = Sanguchetto.getInstance();
+		
+		ingrediente.setNombre(ingredientes);
+		ingrediente.setPrecio(precio);
+		
+		sanguche.agregarIngrediente(ingrediente);
 		
 			
-		return model;
+		return new ModelAndView("armarSanguche",modelo);
 		
 	}
 	
@@ -41,7 +60,9 @@ public class ControladorGENERAL {
 	public ModelAndView agregarIngredienteStock(Model model) {
 		
 		Ingrediente ingrediente = new Ingrediente();
+
 		model.addAttribute("ingrediente", ingrediente);
+
 				
 		return new ModelAndView("agregarIngredienteStock");
 		
@@ -94,4 +115,6 @@ public class ControladorGENERAL {
 		
 		return new ModelAndView("stock_disponible",modelo);
 	}
+	
+
 }

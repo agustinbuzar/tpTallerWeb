@@ -24,6 +24,7 @@
 					<form:label path="precio" for="precio">Precio:</form:label>
 					<form:input path="precio" class="form-control" id="precio"/>
 				</div>
+				
 					<form:label path="tipo" for="tipo">Tipo:</form:label>
 				<div class="radio">
 					<form:radiobutton path="tipo" value="INGREDIENTE"/>Ingrediente
@@ -35,7 +36,8 @@
 				<button type="submit" class="btn btn-default">Agregar</button>
 			</form:form>			
 		</div>
-	
+		
+		
 
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
