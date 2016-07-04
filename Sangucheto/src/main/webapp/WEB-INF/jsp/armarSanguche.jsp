@@ -37,22 +37,59 @@
 							<td>${item.key.precio}</td>
 							<td>${item.key.tipo}</td>
 							<td>${item.value}</td>
-							<td><td><a href="armarSanguche?ingredientes=${item.key.nombre}&precio=${item.key.precio}"><button type="button" class="btn btn-default">Agregar</button></a></td></td>
+							<td><td><a href="agregarIngredienteSanguche?ingredientes=${item.key.nombre}"><button type="button" class="btn btn-default">Agregar</button></a></td></td>
 							
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
+		
+		
+		<div class="col-xs-6">
+			
+			<h1>Ingredientes seleccionados</h1>
+			
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${ingredientesAgregados}" var="ingre">
+						<tr>
+							<td>${ingre.nombre}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+		
+		
+		<div class="col-xs-6">
+			
+			<h1>Condimentos seleccionados</h1>
+			
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+												
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${condimentosAgregados}" var="condi">
+						<tr>
+							<td>${condi.nombre}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+		
 		<a href="index"><button class="btn btn-default">Volver</button></a>
 			
-			
-		</div>
-			
-		
-		
-	</div>
-	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->

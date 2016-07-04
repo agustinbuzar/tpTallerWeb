@@ -31,30 +31,52 @@ public class ControladorGENERAL {
 	}
 	
 	@RequestMapping(value = "/armarSanguche", method = RequestMethod.GET)
-	public ModelAndView armarSanguche(Model model, String ingredientes, Double precio) {
+	public ModelAndView armarSanguche(Model model) {
+		
+		List<Ingrediente> ingredientesAgregados;
+		List<Ingrediente> condimentosAgregados;
+		Map<Ingrediente, Integer> stockIngredientes; 
 		
 		Stock stock = Stock.getInstance();
-		Ingrediente ingrediente = new Ingrediente();
-		
-		Map<Ingrediente, Integer> stockIngredientes; 
 		
 		stockIngredientes = stock.obtenerStock();
 		ModelMap modelo = new ModelMap();
 		modelo.put("stock", stockIngredientes);
 		
-		model.addAttribute("ingrediente",ingrediente);
-		
 		Sanguchetto sanguche = Sanguchetto.getInstance();
 		
-		ingrediente.setNombre(ingredientes);
-		ingrediente.setPrecio(precio);
+		condimentosAgregados = sanguche.verCondimentos();
+		ingredientesAgregados = sanguche.verIngredientes();
 		
-		sanguche.agregarIngrediente(ingrediente);
+		modelo.put("condimentosAgregados", condimentosAgregados);
+		modelo.put("ingredientesAgregados", ingredientesAgregados);
 		
-			
+		
 		return new ModelAndView("armarSanguche",modelo);
-		
 	}
+	
+	
+	@RequestMapping(value = "/agregarIngredienteSanguche", method = RequestMethod.GET)
+	public String agregarIngredienteSanguche(@RequestParam String ingredientes) {
+		
+		Stock stock = Stock.getInstance();
+		Sanguchetto sanguche = Sanguchetto.getInstance();
+		Ingrediente ingredienteSeleccionado = null;
+		
+		for(Ingrediente item : stock.listarIngredientesDisponibles()){
+			if(item.getNombre().equals(ingredientes)){
+				ingredienteSeleccionado = item;
+			}
+		}
+		
+		sanguche.agregarIngrediente(ingredienteSeleccionado);
+		
+		//Integer a = sanguche.verCondimentos().size();
+		//Integer b = sanguche.verIngredientes().size();
+		
+		return "redirect:armarSanguche";
+	}
+		
 	
 	@RequestMapping(value = "/agregarIngredienteStock", method = RequestMethod.GET)
 	public ModelAndView agregarIngredienteStock(Model model) {
@@ -82,24 +104,39 @@ public class ControladorGENERAL {
 		
 	}
 
-	@RequestMapping(value = "/eliminarIngrediente", method = RequestMethod.GET)
-	public String eliminarIngrediente(@ModelAttribute String nombreIngrediente, Model model) {
-
+	@RequestMapping(value = "/eliminarStock", method = RequestMethod.GET)
+	public String eliminarIngrediente(@RequestParam String condimento, Model model) {
+		
 		Stock stock = Stock.getInstance();
-		Ingrediente ingredienteEliminar = new Ingrediente();
 		
 		for(Ingrediente item : stock.listarIngredientesDisponibles()){
-			String nombre = item.getNombre();
-			if(nombre == nombreIngrediente){
-				ingredienteEliminar = item;
+			if(item.getNombre().equals(condimento)){
+				stock.eliminarIngrediente(item);
 			}
 		}
 		
-		stock.eliminarIngrediente(ingredienteEliminar);
+		return "redirect:verStock";
+	}
+	
+	@RequestMapping(value = "/agregarStock", method = RequestMethod.GET)
+	public String agregarStock(@RequestParam String ingrediente, @RequestParam Integer cantidad) {
 		
+		Set<Ingrediente> listaIngredientes;
+		Ingrediente ingredienteSeleccionado = null;
+		
+		Stock stock = Stock.getInstance();
+		
+		listaIngredientes = stock.listarIngredientesDisponibles();
+		
+		for(Ingrediente item : listaIngredientes){
+			if(item.getNombre().equals(ingrediente)){
+				ingredienteSeleccionado = item;
+			}
+		}
+		
+		stock.agregarStock(ingredienteSeleccionado, cantidad);
 		
 		return "redirect:verStock";
-		
 	}
 	
 	@RequestMapping(value = "/verStock", method = RequestMethod.GET)
