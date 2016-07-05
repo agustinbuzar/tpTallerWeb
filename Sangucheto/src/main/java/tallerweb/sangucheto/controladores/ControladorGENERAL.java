@@ -34,6 +34,7 @@ public class ControladorGENERAL {
 	
 	@RequestMapping(value = "/armarSanguche", method = RequestMethod.GET)
 	public ModelAndView armarSanguche(Model model) {
+<<<<<<< HEAD
 		
 		List<Ingrediente> ingredientesAgregados;
 		List<Ingrediente> condimentosAgregados;
@@ -41,10 +42,19 @@ public class ControladorGENERAL {
 		
 		Stock stock = Stock.getInstance();
 		
+=======
+		
+		List<Ingrediente> ingredientesAgregados;
+		List<Ingrediente> condimentosAgregados;
+		Map<Ingrediente, Integer> stockIngredientes; 
+>>>>>>> origin/master
+		
+		Stock stock = Stock.getInstance();
 		
 		stockIngredientes = stock.obtenerStock();
 		ModelMap modelo = new ModelMap();
 		
+<<<<<<< HEAD
 		
 		for(Ingrediente item : stock.listarIngredientesDisponibles()) {
 		    if(stock.obtenerStockDisponible(item) > 0){
@@ -59,6 +69,10 @@ public class ControladorGENERAL {
 		 
 		 model.addAttribute("precio",precio);
 		
+=======
+		Sanguchetto sanguche = Sanguchetto.getInstance();
+		
+>>>>>>> origin/master
 		condimentosAgregados = sanguche.verCondimentos();
 		ingredientesAgregados = sanguche.verIngredientes();
 		
@@ -82,6 +96,7 @@ public class ControladorGENERAL {
 				ingredienteSeleccionado = item;
 			}
 		}
+<<<<<<< HEAD
 		
 		sanguche.agregarIngrediente(ingredienteSeleccionado);
 		
@@ -107,9 +122,17 @@ public class ControladorGENERAL {
 		
 		sanguche.quitarIngrediente(ingredienteSeleccionado);
 		
+=======
+		
+		sanguche.agregarIngrediente(ingredienteSeleccionado);
+		
+		//Integer a = sanguche.verCondimentos().size();
+		//Integer b = sanguche.verIngredientes().size();
+>>>>>>> origin/master
 		
 		return "redirect:armarSanguche";
 	}
+		
 	
 
 	@RequestMapping(value = "/limpiarSanguche", method = RequestMethod.GET)
@@ -164,7 +187,10 @@ public class ControladorGENERAL {
 	}
 	
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 	@RequestMapping(value = "/eliminarStock", method = RequestMethod.GET)
 	public String eliminarIngrediente(@RequestParam String condimento, Model model) {
 		
@@ -173,7 +199,10 @@ public class ControladorGENERAL {
 		for(Ingrediente item : stock.listarIngredientesDisponibles()){
 			if(item.getNombre().equals(condimento)){
 				stock.eliminarIngrediente(item);
+<<<<<<< HEAD
 				break;
+=======
+>>>>>>> origin/master
 			}
 		}
 		
@@ -182,6 +211,7 @@ public class ControladorGENERAL {
 	
 	@RequestMapping(value = "/agregarStock", method = RequestMethod.GET)
 	public String agregarStock(@RequestParam String ingrediente, @RequestParam Integer cantidad) {
+<<<<<<< HEAD
 		
 		Set<Ingrediente> listaIngredientes;
 		Ingrediente ingredienteSeleccionado = null;
@@ -196,6 +226,22 @@ public class ControladorGENERAL {
 			}
 		}
 		
+=======
+		
+		Set<Ingrediente> listaIngredientes;
+		Ingrediente ingredienteSeleccionado = null;
+		
+		Stock stock = Stock.getInstance();
+		
+		listaIngredientes = stock.listarIngredientesDisponibles();
+		
+		for(Ingrediente item : listaIngredientes){
+			if(item.getNombre().equals(ingrediente)){
+				ingredienteSeleccionado = item;
+			}
+		}
+		
+>>>>>>> origin/master
 		stock.agregarStock(ingredienteSeleccionado, cantidad);
 		
 		return "redirect:verStock";

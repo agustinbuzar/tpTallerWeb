@@ -35,6 +35,10 @@
 							<td>${item.key.nombre}</td>
 							<td>$ ${item.key.precio}</td>
 							<td>${item.key.tipo}</td>
+<<<<<<< HEAD
+=======
+							<td>${item.value}</td>
+>>>>>>> origin/master
 							<td><td><a href="agregarIngredienteSanguche?ingredientes=${item.key.nombre}"><button type="button" class="btn btn-default">Agregar</button></a></td></td>
 							
 						</tr>
@@ -58,7 +62,10 @@
 					<c:forEach items="${ingredientesAgregados}" var="ingre">
 						<tr>
 							<td>${ingre.nombre}</td>
+<<<<<<< HEAD
 							<td><a href="quitarIngredienteSanguche?ingredientes=${ingre.nombre}"><button type="button" class="btn btn-default">Quitar</button></a></td>
+=======
+>>>>>>> origin/master
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -81,12 +88,16 @@
 					<c:forEach items="${condimentosAgregados}" var="condi">
 						<tr>
 							<td>${condi.nombre}</td>
+<<<<<<< HEAD
 							<td><a href="quitarIngredienteSanguche?ingredientes=${condi.nombre}"><button type="button" class="btn btn-default">Quitar</button></a></td>
+=======
+>>>>>>> origin/master
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
+<<<<<<< HEAD
 		<br>
 	<div class="panel panel-default">
 	  <div class="panel-body">
@@ -99,6 +110,10 @@
 		<a href="index"><button class="btn btn-default">Volver</button></a>
 		<a href="limpiarSanguche"><button class="btn btn-default">Limpiar</button></a>
 		<a href="comprarSanguche"><button class="btn btn-default">Comprar</button></a>
+=======
+		
+		<a href="index"><button class="btn btn-default">Volver</button></a>
+>>>>>>> origin/master
 			
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.11.3.min.js"></script>

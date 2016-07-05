@@ -55,7 +55,11 @@
 							<label class="active" for="cantidad">Cantidad</label>
 							<input id="cantidad" name="cantidad" type="text" class="form-control"></br>
 									
+<<<<<<< HEAD
 							<button type="submit" class="btn btn-default">Agregar Stock</button>
+=======
+							<button type="submit" class="btn btn-default">Agregar</button>
+>>>>>>> origin/master
 						</form>
 		        </div>
 		        <div class="modal-footer">
