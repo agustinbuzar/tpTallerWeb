@@ -30,6 +30,23 @@ public class Sanguchetto {
 	}
 	
 	/**
+	 * Elimina un ingrediente del carrito.<br>
+	 * @param ingrediente
+	 */
+	public void quitarIngrediente(Ingrediente ingrediente){
+		
+		for (Ingrediente item :this.ingredientes) {
+			 
+				if (item.equals(ingrediente)) {
+				 
+					ingredientes.remove(ingrediente);
+				}
+			 
+			}
+
+	}
+	
+	/**
 	 * Lista todos los ingredientes que forman parte del sanguchetto.<br>
 	 * @return
 	 */

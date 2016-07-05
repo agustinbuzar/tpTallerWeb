@@ -25,6 +25,7 @@
 			<a href="armarSanguche"><button type="button" class="btn btn-lg btn-default">Armar sanguche</button></a>
 			<a href="agregarIngredienteStock"><button type="button" class="btn btn-lg btn-default">Alta Ingrediente</button></a>
 			<a href="verStock"><button type="button" class="btn btn-lg btn-default">Stock Ingrediente</button></a>
+			<a href="autoCompletar"><button type="button" class="btn btn-lg btn-default">Boton Magico</button></a>
 		</p>
 		<p>
 			<button type="button" class="btn btn-xs btn-default">Default</button>
