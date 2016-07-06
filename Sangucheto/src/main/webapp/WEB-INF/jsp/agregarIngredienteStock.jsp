@@ -31,7 +31,7 @@
 				</div>
 				<div class="radio">
 					<form:radiobutton path="tipo" value="CONDIMENTO"/>Condimento
-				</div>
+		
 				
 				<button type="submit" class="btn btn-default">Agregar</button>
 			</form:form>			

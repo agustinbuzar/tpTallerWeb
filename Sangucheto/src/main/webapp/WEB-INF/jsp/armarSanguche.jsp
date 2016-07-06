@@ -24,7 +24,6 @@
 						<th>Nombre</th>
 						<th>Precio</th>
 						<th>Tipo</th>
-						<th>Cantidad</th>
 						
 						<th></th>
 						
@@ -34,9 +33,8 @@
 					<c:forEach items="${stock}" var="item">
 						<tr>
 							<td>${item.key.nombre}</td>
-							<td>${item.key.precio}</td>
+							<td>$ ${item.key.precio}</td>
 							<td>${item.key.tipo}</td>
-							<td>${item.value}</td>
 							<td><td><a href="agregarIngredienteSanguche?ingredientes=${item.key.nombre}"><button type="button" class="btn btn-default">Agregar</button></a></td></td>
 							
 						</tr>
@@ -60,6 +58,7 @@
 					<c:forEach items="${ingredientesAgregados}" var="ingre">
 						<tr>
 							<td>${ingre.nombre}</td>
+							<td><a href="quitarIngredienteSanguche?ingredientes=${ingre.nombre}"><button type="button" class="btn btn-default">Quitar</button></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -82,13 +81,24 @@
 					<c:forEach items="${condimentosAgregados}" var="condi">
 						<tr>
 							<td>${condi.nombre}</td>
+							<td><a href="quitarIngredienteSanguche?ingredientes=${condi.nombre}"><button type="button" class="btn btn-default">Quitar</button></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
+		<br>
+	<div class="panel panel-default">
+	  <div class="panel-body">
+		<label  for="precio">Precio: </label>
+		<input id="precio"   name="precio" type="text" value="${precio}" class="panel-body" disabled>
+	  </div>
+	</div>
+		
 		
 		<a href="index"><button class="btn btn-default">Volver</button></a>
+		<a href="limpiarSanguche"><button class="btn btn-default">Limpiar</button></a>
+		<a href="comprarSanguche"><button class="btn btn-default">Comprar</button></a>
 			
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.11.3.min.js"></script>

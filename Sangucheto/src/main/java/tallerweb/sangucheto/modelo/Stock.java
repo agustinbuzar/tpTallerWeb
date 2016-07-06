@@ -71,6 +71,8 @@ public class Stock {
 		return true;
 	}
 	
+
+	
 	/**
 	 * Devuelve el stock disponible para el ingrediente pedido. NULL si el ingrediente no existe en el stock<br>
 	 * @param ingrediente
