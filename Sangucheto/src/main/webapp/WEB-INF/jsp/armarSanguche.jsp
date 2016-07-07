@@ -35,15 +35,9 @@
 							<td>${item.key.nombre}</td>
 							<td>$ ${item.key.precio}</td>
 							<td>${item.key.tipo}</td>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-							<td>${item.value}</td>
->>>>>>> origin/master
->>>>>>> bfd0c4f82ce85625ade1108e7a1631be326aca91
+							<c:if test="${item.value > 0}">
 							<td><td><a href="agregarIngredienteSanguche?ingredientes=${item.key.nombre}"><button type="button" class="btn btn-default">Agregar</button></a></td></td>
-							
+							</c:if>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -65,14 +59,7 @@
 					<c:forEach items="${ingredientesAgregados}" var="ingre">
 						<tr>
 							<td>${ingre.nombre}</td>
-<<<<<<< HEAD
 							<td><a href="quitarIngredienteSanguche?ingredientes=${ingre.nombre}"><button type="button" class="btn btn-default">Quitar</button></a></td>
-=======
-<<<<<<< HEAD
-							<td><a href="quitarIngredienteSanguche?ingredientes=${ingre.nombre}"><button type="button" class="btn btn-default">Quitar</button></a></td>
-=======
->>>>>>> origin/master
->>>>>>> bfd0c4f82ce85625ade1108e7a1631be326aca91
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -95,23 +82,12 @@
 					<c:forEach items="${condimentosAgregados}" var="condi">
 						<tr>
 							<td>${condi.nombre}</td>
-<<<<<<< HEAD
 							<td><a href="quitarIngredienteSanguche?ingredientes=${condi.nombre}"><button type="button" class="btn btn-default">Quitar</button></a></td>
-=======
-<<<<<<< HEAD
-							<td><a href="quitarIngredienteSanguche?ingredientes=${condi.nombre}"><button type="button" class="btn btn-default">Quitar</button></a></td>
-=======
->>>>>>> origin/master
->>>>>>> bfd0c4f82ce85625ade1108e7a1631be326aca91
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</div>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> bfd0c4f82ce85625ade1108e7a1631be326aca91
 		<br>
 	<div class="panel panel-default">
 	  <div class="panel-body">
@@ -120,21 +96,10 @@
 	  </div>
 	</div>
 		
-<<<<<<< HEAD
 		
 		<a href="index"><button class="btn btn-default">Volver</button></a>
 		<a href="limpiarSanguche"><button class="btn btn-default">Limpiar</button></a>
 		<a href="comprarSanguche"><button class="btn btn-default">Comprar</button></a>
-=======
-		
-		<a href="index"><button class="btn btn-default">Volver</button></a>
-		<a href="limpiarSanguche"><button class="btn btn-default">Limpiar</button></a>
-		<a href="comprarSanguche"><button class="btn btn-default">Comprar</button></a>
-=======
-		
-		<a href="index"><button class="btn btn-default">Volver</button></a>
->>>>>>> origin/master
->>>>>>> bfd0c4f82ce85625ade1108e7a1631be326aca91
 			
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.11.3.min.js"></script>

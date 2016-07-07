@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import tallerweb.sangucheto.modelo.Administrador;
 import tallerweb.sangucheto.modelo.Ingrediente;
+import tallerweb.sangucheto.modelo.Login;
 import tallerweb.sangucheto.modelo.Sanguchetto;
 import tallerweb.sangucheto.modelo.Stock;
 import tallerweb.sangucheto.modelo.TipoIngrediente;
@@ -32,9 +34,17 @@ public class ControladorGENERAL {
 		
 	}
 	
+	@RequestMapping(value = "/indexAdmin", method = RequestMethod.GET)
+	public ModelAndView indexAdmin() {
+				
+		ModelAndView a = new ModelAndView("indexAdmin");
+		
+		return a;
+		
+	}
+	
 	@RequestMapping(value = "/armarSanguche", method = RequestMethod.GET)
 	public ModelAndView armarSanguche(Model model) {
-<<<<<<< HEAD
 		
 		List<Ingrediente> ingredientesAgregados;
 		List<Ingrediente> condimentosAgregados;
@@ -42,46 +52,18 @@ public class ControladorGENERAL {
 		
 		Stock stock = Stock.getInstance();
 		
-<<<<<<< HEAD
-=======
-=======
-		
-		List<Ingrediente> ingredientesAgregados;
-		List<Ingrediente> condimentosAgregados;
-		Map<Ingrediente, Integer> stockIngredientes; 
->>>>>>> origin/master
-		
-		Stock stock = Stock.getInstance();
->>>>>>> bfd0c4f82ce85625ade1108e7a1631be326aca91
-		
-		stockIngredientes = stock.obtenerStock();
 		ModelMap modelo = new ModelMap();
 		
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> bfd0c4f82ce85625ade1108e7a1631be326aca91
-		
-		for(Ingrediente item : stock.listarIngredientesDisponibles()) {
-		    if(stock.obtenerStockDisponible(item) > 0){
-		    	modelo.put("stock", stockIngredientes);
-		    }
-		}
-		
-		
+		stockIngredientes = stock.obtenerStock();
+
+		modelo.put("stock", stockIngredientes);
+
 		Sanguchetto sanguche = Sanguchetto.getInstance();
 		
 		 Double precio =sanguche.getPrecio();
 		 
 		 model.addAttribute("precio",precio);
 		
-<<<<<<< HEAD
-=======
-=======
-		Sanguchetto sanguche = Sanguchetto.getInstance();
-		
->>>>>>> origin/master
->>>>>>> bfd0c4f82ce85625ade1108e7a1631be326aca91
 		condimentosAgregados = sanguche.verCondimentos();
 		ingredientesAgregados = sanguche.verIngredientes();
 		
@@ -105,12 +87,9 @@ public class ControladorGENERAL {
 				ingredienteSeleccionado = item;
 			}
 		}
-<<<<<<< HEAD
 		
 		sanguche.agregarIngrediente(ingredienteSeleccionado);
-		
-		//Integer a = sanguche.verCondimentos().size();
-		//Integer b = sanguche.verIngredientes().size();
+		stock.comprarIngrediente(ingredienteSeleccionado, 1);
 		
 		return "redirect:armarSanguche";
 	}
@@ -125,71 +104,73 @@ public class ControladorGENERAL {
 		for(Ingrediente item : stock.listarIngredientesDisponibles()){
 			if(item.getNombre().equals(ingredientes)){
 				ingredienteSeleccionado = item;
+				sanguche.quitarIngrediente(ingredienteSeleccionado);
 				break;
 			}
 		}
 		
-		sanguche.quitarIngrediente(ingredienteSeleccionado);
-		
-=======
-		
-		sanguche.agregarIngrediente(ingredienteSeleccionado);
-		
-		//Integer a = sanguche.verCondimentos().size();
-		//Integer b = sanguche.verIngredientes().size();
->>>>>>> origin/master
+		stock.agregarStock(ingredienteSeleccionado, 1);
 		
 		return "redirect:armarSanguche";
 	}
 	
-	@RequestMapping(value = "/quitarIngredienteSanguche", method = RequestMethod.GET)
-	public String quitarIngrediente(@RequestParam String ingredientes) {
+
+	@RequestMapping(value = "/limpiarSanguche", method = RequestMethod.GET)
+	public String limpiarSanguche() {
 		
+		Sanguchetto sanguche = Sanguchetto.getInstance();
 		Stock stock = Stock.getInstance();
-		Sanguchetto sanguche = Sanguchetto.getInstance();
-		Ingrediente ingredienteSeleccionado = null;
 		
-		for(Ingrediente item : stock.listarIngredientesDisponibles()){
-			if(item.getNombre().equals(ingredientes)){
-				ingredienteSeleccionado = item;
-				break;
-			}
+		List<Ingrediente> listaCondimentos = sanguche.verCondimentos();
+		for(Ingrediente item : listaCondimentos){
+			stock.agregarStock(item, 1);
 		}
 		
-		sanguche.quitarIngrediente(ingredienteSeleccionado);
+		List<Ingrediente> listaIngredientes = sanguche.verIngredientes();
+		for(Ingrediente item : listaIngredientes){
+			stock.agregarStock(item, 1);
+		}
 		
-		
-		return "redirect:armarSanguche";
-	}
-	
-
-	@RequestMapping(value = "/limpiarSanguche", method = RequestMethod.GET)
-	public String limpiarSanguche() {
-		
-		Sanguchetto sanguche = Sanguchetto.getInstance();
-		
-		
-		sanguche.vaciar();
+		sanguche.vaciar(); 
 
 		return "redirect:armarSanguche";
 	}
 	
+	@RequestMapping(value = "/loginAdmin", method = RequestMethod.GET)
+	public ModelAndView loginAdmin(Model model) {
+		
+		Administrador admin = new Administrador();
+		
 
-<<<<<<< HEAD
-=======
-	@RequestMapping(value = "/limpiarSanguche", method = RequestMethod.GET)
-	public String limpiarSanguche() {
-		
-		Sanguchetto sanguche = Sanguchetto.getInstance();
-		
-		
-		sanguche.vaciar();
+		model.addAttribute("admin", admin);
 
-		return "redirect:armarSanguche";
+				
+		return new ModelAndView("loginAdmin");
+		
+	}
+	
+	@RequestMapping(value = "/validaAdmin", method = RequestMethod.POST)
+	public String agregarIngrediente(@ModelAttribute Administrador admin, Model model) {
+
+		model.addAttribute("admin", admin);
+		
+		Login login = new Login();
+		
+		login.setPass("1234");
+		login.setUser("admin");
+		
+		
+		if(login.validarAdmin(admin) ){
+			
+			return "redirect:indexAdmin";
+		}else
+			return "redirect:loginAdmin";
+		
+		
+		
 	}
 	
 
->>>>>>> bfd0c4f82ce85625ade1108e7a1631be326aca91
 	@RequestMapping(value = "/agregarIngredienteStock", method = RequestMethod.GET)
 	public ModelAndView agregarIngredienteStock(Model model) {
 		
@@ -225,19 +206,12 @@ public class ControladorGENERAL {
 			
 		
 		
-		return "redirect:index";
+		return "redirect:indexAdmin";
 		
 	}
 	
-<<<<<<< HEAD
 
-=======
->>>>>>> bfd0c4f82ce85625ade1108e7a1631be326aca91
 
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 	@RequestMapping(value = "/eliminarStock", method = RequestMethod.GET)
 	public String eliminarIngrediente(@RequestParam String condimento, Model model) {
 		
@@ -246,14 +220,7 @@ public class ControladorGENERAL {
 		for(Ingrediente item : stock.listarIngredientesDisponibles()){
 			if(item.getNombre().equals(condimento)){
 				stock.eliminarIngrediente(item);
-<<<<<<< HEAD
 				break;
-=======
-<<<<<<< HEAD
-				break;
-=======
->>>>>>> origin/master
->>>>>>> bfd0c4f82ce85625ade1108e7a1631be326aca91
 			}
 		}
 		
@@ -262,7 +229,6 @@ public class ControladorGENERAL {
 	
 	@RequestMapping(value = "/agregarStock", method = RequestMethod.GET)
 	public String agregarStock(@RequestParam String ingrediente, @RequestParam Integer cantidad) {
-<<<<<<< HEAD
 		
 		Set<Ingrediente> listaIngredientes;
 		Ingrediente ingredienteSeleccionado = null;
@@ -277,22 +243,6 @@ public class ControladorGENERAL {
 			}
 		}
 		
-=======
-		
-		Set<Ingrediente> listaIngredientes;
-		Ingrediente ingredienteSeleccionado = null;
-		
-		Stock stock = Stock.getInstance();
-		
-		listaIngredientes = stock.listarIngredientesDisponibles();
-		
-		for(Ingrediente item : listaIngredientes){
-			if(item.getNombre().equals(ingrediente)){
-				ingredienteSeleccionado = item;
-			}
-		}
-		
->>>>>>> origin/master
 		stock.agregarStock(ingredienteSeleccionado, cantidad);
 		
 		return "redirect:verStock";
@@ -315,20 +265,9 @@ public class ControladorGENERAL {
 	@RequestMapping(value = "/comprarSanguche", method = RequestMethod.GET)
 	public String comprar() {
 		
-		Stock stock = Stock.getInstance();
+		//Stock stock = Stock.getInstance();
 		Sanguchetto sanguche =Sanguchetto.getInstance();
 		
-		
-		
-		 for ( Ingrediente ingredientes : sanguche.verIngredientes() ) {
-               
-			 stock.comprarIngrediente(ingredientes,1);
-		 };
-		 
-		 for ( Ingrediente condimentos: sanguche.verCondimentos() ) {
-             
-			 stock.comprarIngrediente(condimentos,1);
-		 };
 		
 		sanguche.vaciar();
 		
@@ -384,7 +323,7 @@ public class ControladorGENERAL {
 		
 		
 		
-		return "redirect:index";
+		return "redirect:indexAdmin";
 	}
 	
 	
