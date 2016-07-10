@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SANGUCHETO</title>
+<title>-- Sanguchetto --</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -28,9 +28,7 @@
 			<a href="autoCompletar"><button type="button" class="btn btn-lg btn-default">Boton Magico</button></a>
 			<a href="index"><button type="button" class="btn btn-lg btn-default">Volver a la Pagina Principal</button></a>
 		</p>
-		<p>
-			<button type="button" class="btn btn-xs btn-default">Default</button>
-		</p>
+		
 	</div>
 	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

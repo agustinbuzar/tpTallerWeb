@@ -61,14 +61,14 @@
                 <h2>Contactanos</h2>
                 <address>
                     <strong>Direccion</strong>
-                    <br>3481 Melrose Place PutoElQueLee
+                    <br>3481 Melrose
                     <br>Beverly Hills, CA 90210
                     <br>
                 </address>
                 <address>
                     <abbr title="Phone">Tel:</abbr>(123) 456-7890
                     <br>
-                    <abbr title="Email">E-mail:</abbr> <a href="mailto:#">Sanguchetto@gmail.com</a>
+                    <abbr title="Email">E-mail:</abbr> <a href="mailto:#">sanguchetto@gmail.com</a>
                 </address>
             </div>
         </div>

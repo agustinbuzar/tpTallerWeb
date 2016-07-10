@@ -6,12 +6,16 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap Test</title>
+<title>-- Sanguchetto --</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+	<div class="jumbotron">
+		<h1>Agregar Ingrediente</h1>
+	</div>
+	
 	<div class="container theme-showcase" role="main">
 
 		<div class="page-header">
@@ -23,18 +27,19 @@
 				<div class="form-group">
 					<form:label path="precio" for="precio">Precio:</form:label>
 					<form:input path="precio" class="form-control" id="precio"/>
-				</div>
-				
+					<br/>
 					<form:label path="tipo" for="tipo">Tipo:</form:label>
-				<div class="radio">
-					<form:radiobutton path="tipo" value="INGREDIENTE"/>Ingrediente
+						<div class="radio">
+							<form:radiobutton path="tipo" value="INGREDIENTE"/>Ingrediente
+						</div>
+						<div class="radio">
+							<form:radiobutton path="tipo" value="CONDIMENTO"/>Condimento
+						</div>
 				</div>
-				<div class="radio">
-					<form:radiobutton path="tipo" value="CONDIMENTO"/>Condimento
-		
-				
-				<button type="submit" class="btn btn-default">Agregar</button>
-			</form:form>			
+				<br/>
+				<button type="submit" class="btn btn-success">Agregar</button>
+			</form:form>
+			<a href="indexAdmin"><button class="btn btn-danger">Cancelar</button></a>			
 		</div>
 		
 		

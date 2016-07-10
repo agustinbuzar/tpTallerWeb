@@ -6,12 +6,17 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap Test</title>
+<title>-- Sanguchetto --</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+	<div class="jumbotron">
+		<h1>Stock Disponible</h1>
+	</div>
+	
 	<div class="container theme-showcase" role="main">
 
 		<div class="page-header">
@@ -33,14 +38,15 @@
 							<td>${item.key.precio}</td>
 							<td>${item.key.tipo}</td>
 							<td>${item.value}</td>
-							<td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal" data-name="${item.key.nombre}" onclick="hola(this);">Agregar stock</button></td>
+							<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" data-name="${item.key.nombre}" onclick="hola(this);">Agregar stock</button></td>
 							<td><a href="eliminarStock?condimento=${item.key.nombre}"><button type="button" class="btn btn-danger">Eliminar</button></a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
+			
+			<a href="indexAdmin"><button class="btn btn-default btn-lg">Volver</button></a><br/>
 		</div>
-		<a href="indexAdmin"><button class="btn btn-default">Volver</button></a>
 
 		<div class="modal fade" id="myModal" role="dialog">
 		    <div class="modal-dialog modal-lg">
@@ -55,11 +61,11 @@
 							<label class="active" for="cantidad">Cantidad</label>
 							<input id="cantidad" name="cantidad" type="text" class="form-control"></br>
 									
-							<button type="submit" class="btn btn-default">Agregar Stock</button>
+							<button type="submit" class="btn btn-success">Agregar Stock</button>
 						</form>
 		        </div>
 		        <div class="modal-footer">
-		          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+		          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
 		        </div>
 		      </div>
 		    </div>

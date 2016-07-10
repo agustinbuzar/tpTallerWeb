@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SANGUCHETO</title>
+<title>-- Sanguchetto --</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
 							<td>$ ${item.key.precio}</td>
 							<td>${item.key.tipo}</td>
 							<c:if test="${item.value > 0}">
-							<td><td><a href="agregarIngredienteSanguche?ingredientes=${item.key.nombre}"><button type="button" class="btn btn-default">Agregar</button></a></td></td>
+							<td><td><a href="agregarIngredienteSanguche?ingredientes=${item.key.nombre}"><button type="button" class="btn btn-info">Agregar</button></a></td></td>
 							</c:if>
 						</tr>
 					</c:forEach>
@@ -44,63 +44,63 @@
 			</table>
 		</div>
 		
-		
-		<div class="col-xs-6">
-			
-			<h1>Ingredientes seleccionados</h1>
-			
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Nombre</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${ingredientesAgregados}" var="ingre">
+		<div class="row">
+			<div class="col-xs-6">
+				
+				<h1>Ingredientes seleccionados</h1>
+				
+				<table class="table">
+					<thead>
 						<tr>
-							<td>${ingre.nombre}</td>
-							<td><a href="quitarIngredienteSanguche?ingredientes=${ingre.nombre}"><button type="button" class="btn btn-default">Quitar</button></a></td>
+							<th>Nombre</th>
 						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</div>
-		
-		
-		<div class="col-xs-6">
+					</thead>
+					<tbody>
+						<c:forEach items="${ingredientesAgregados}" var="ingre">
+							<tr>
+								<td>${ingre.nombre}</td>
+								<td><a href="quitarIngredienteSanguche?ingredientes=${ingre.nombre}"><button type="button" class="btn btn-danger">Quitar</button></a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
 			
-			<h1>Condimentos seleccionados</h1>
 			
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Nombre</th>
-												
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${condimentosAgregados}" var="condi">
+			<div class="col-xs-6">
+				
+				<h1>Condimentos seleccionados</h1>
+				
+				<table class="table">
+					<thead>
 						<tr>
-							<td>${condi.nombre}</td>
-							<td><a href="quitarIngredienteSanguche?ingredientes=${condi.nombre}"><button type="button" class="btn btn-default">Quitar</button></a></td>
+							<th>Nombre</th>
+													
 						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+					</thead>
+					<tbody>
+						<c:forEach items="${condimentosAgregados}" var="condi">
+							<tr>
+								<td>${condi.nombre}</td>
+								<td><a href="quitarIngredienteSanguche?ingredientes=${condi.nombre}"><button type="button" class="btn btn-danger">Quitar</button></a></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			</div>
 		</div>
-		<br>
-	<div class="panel panel-default">
-	  <div class="panel-body">
-		<label  for="precio">Precio: </label>
-		<input id="precio"   name="precio" type="text" value="${precio}" class="panel-body" disabled>
-	  </div>
+		<div class="page-header">
+			<div class="panel-body">
+				<label for="precio"><h3>Precio: </h3></label>
+				<input id="precio"   name="precio" type="text" value="${precio}" class="panel-body" disabled>
+		  	</div>
+			
+			<a href="index"><button class="btn btn-default btn-lg">Volver</button></a>
+			<a href="limpiarSanguche"><button class="btn btn-danger btn-lg">Limpiar</button></a>
+			<a href="comprarSanguche"><button class="btn btn-success btn-lg">Comprar</button></a>
+		</div>
 	</div>
-		
-		
-		<a href="index"><button class="btn btn-default">Volver</button></a>
-		<a href="limpiarSanguche"><button class="btn btn-default">Limpiar</button></a>
-		<a href="comprarSanguche"><button class="btn btn-default">Comprar</button></a>
-			
+
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->

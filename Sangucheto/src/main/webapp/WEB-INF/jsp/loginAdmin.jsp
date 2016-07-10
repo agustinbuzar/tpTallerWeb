@@ -6,13 +6,16 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap Test</title>
+<title>-- Sanguchetto --</title>
 
 <!-- Bootstrap -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container theme-showcase" role="main">
+		<div class="jumbotron">
+			<h1>Inicio de Sesión</h1>
+		</div>
 
 		<div class="page-header">
 			<form:form method="post" action="validaAdmin" commandName="admin" role ="form">
