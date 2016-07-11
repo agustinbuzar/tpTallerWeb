@@ -28,6 +28,11 @@
 					<form:label path="precio" for="precio">Precio:</form:label>
 					<form:input path="precio" class="form-control" id="precio"/>
 					<br/>
+					
+					<form:label path="imagen" for="imagen">Path/URL Imagen:</form:label>
+					<form:input path="imagen"  id="imagen" class="form-control"/>
+					<br/>
+				
 					<form:label path="tipo" for="tipo">Tipo:</form:label>
 						<div class="radio">
 							<form:radiobutton path="tipo" value="INGREDIENTE"/>Ingrediente

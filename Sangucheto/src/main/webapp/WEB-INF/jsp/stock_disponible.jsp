@@ -34,7 +34,7 @@
 				<tbody>
 					<c:forEach items="${stock}" var="item">
 						<tr>
-							<td>${item.key.nombre}</td>
+							<td>${item.key.nombre} <img src="${item.key.imagen}"  class="img-circle" width="52" height="45"></td>
 							<td>${item.key.precio}</td>
 							<td>${item.key.tipo}</td>
 							<td>${item.value}</td>

@@ -32,11 +32,14 @@
 				<tbody>
 					<c:forEach items="${stock}" var="item">
 						<tr>
-							<td>${item.key.nombre}</td>
+							<td>${item.key.nombre}<img src="${item.key.imagen}"  class="img-circle" width="52" height="45"></td>
 							<td>$ ${item.key.precio}</td>
 							<td>${item.key.tipo}</td>
 							<c:if test="${item.value > 0}">
 							<td><td><a href="agregarIngredienteSanguche?ingredientes=${item.key.nombre}"><button type="button" class="btn btn-info">Agregar</button></a></td></td>
+							</c:if>
+							<c:if test="${item.value == 0}">
+							<td><td><button type="button" class="btn btn-danger" disabled>Sin Stock</button></a></td></td>
 							</c:if>
 						</tr>
 					</c:forEach>
@@ -58,7 +61,7 @@
 					<tbody>
 						<c:forEach items="${ingredientesAgregados}" var="ingre">
 							<tr>
-								<td>${ingre.nombre}</td>
+								<td>${ingre.nombre}<img src="${ingre.imagen}"  class="img-circle" width="52" height="45"></td>
 								<td><a href="quitarIngredienteSanguche?ingredientes=${ingre.nombre}"><button type="button" class="btn btn-danger">Quitar</button></a></td>
 							</tr>
 						</c:forEach>
@@ -81,7 +84,7 @@
 					<tbody>
 						<c:forEach items="${condimentosAgregados}" var="condi">
 							<tr>
-								<td>${condi.nombre}</td>
+								<td>${condi.nombre}<img src="${condi.imagen}"  class="img-circle" width="52" height="45"></td>
 								<td><a href="quitarIngredienteSanguche?ingredientes=${condi.nombre}"><button type="button" class="btn btn-danger">Quitar</button></a></td>
 							</tr>
 						</c:forEach>

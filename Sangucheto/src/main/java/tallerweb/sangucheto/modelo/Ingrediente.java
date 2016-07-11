@@ -5,6 +5,7 @@ public class Ingrediente {
     private String nombre;
     private Double precio;
     private TipoIngrediente tipo;
+    private String imagen;
     
     public String getNombre() {
         return nombre;
@@ -24,4 +25,10 @@ public class Ingrediente {
     public void setTipo(TipoIngrediente tipo) {
         this.tipo = tipo;
     }
+	public String getImagen() {
+		return imagen;
+	}
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
 }
