@@ -35,6 +35,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+               
                     <h1 class="tagline">Bienvenido a Sanguchetto!</h1>
                    <div class="pull-right"><a class="btn btn-default btn-s" href="loginAdmin">Administrar</a></div> 
                 </div>
