@@ -1,32 +1,61 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>-- Sanguchetto --</title>
-
-<!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>[SanguCheto]</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href="css/sangucheto.css" rel="stylesheet">  
 </head>
-<body>
-<!-- Main jumbotron for a primary marketing message or call to action -->
-	<div class="jumbotron">
-		<h1>Stock Disponible</h1>
-	</div>
-	
-	<div class="container theme-showcase" role="main">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-		<div class="page-header">
-			<table class="table">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand sangucheto" href="indexAdmin">SanguCheto</a>
+        <p class="navbar-brand text-verde">-[GOD MODE]-</p>     
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+      	<li><a href="agregarIngredienteStock">ALTA&nbsp;</a></li>
+      	<li><a href="verStock">STOCK&nbsp;</a></li>
+        <li><a href="armarSanguche">ARMAR</a></li>
+        <li><a href="index"><span class="glyphicon glyphicon-log-out"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron-admin text-center">
+  <h1 class="sangucheto">SanguCheto</h1>
+</div>
+
+<!-- Container (About Section) -->
+<div id="about" class="text-center">
+<h1 class="text-center">Ingredientes</h1>
+  <div class="row">
+
+			<table class="table class="text-center"">
 				<thead>
 					<tr>
-						<th>Nombre</th>
-						<th>Precio</th>
-						<th>Tipo</th>
-						<th>Cantidad</th>
+						<th class="text-center">Nombre</th>
+						<th class="text-center">Precio</th>
+						<th class="text-center">Tipo</th>
+						<th class="text-center">Cantidad</th>
 						<th></th>
 						
 					</tr>
@@ -44,14 +73,15 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			
-			<a href="indexAdmin"><button class="btn btn-default btn-lg">Volver</button></a><br/>
 		</div>
 
 		<div class="modal fade" id="myModal" role="dialog">
-		    <div class="modal-dialog modal-lg">
+		    <div class="modal-dialog">
 		      <div class="modal-content">
 		        <div class="modal-header">
+		        <br>
+		        <h1 class="sangucheto">SanguCheto</h1>
+		        <br>
 		          <h4 class="modal-title">Agregar stock</h4>
 		        </div>
 		        <div class="modal-body">
@@ -72,17 +102,60 @@
 		  </div>
 
 	</div>
-	
-	<script>
-		function hola(elem){
-			name = $(elem).data('name');
-			document.getElementById("ingrediente").value = name;
-		}
-	</script>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="js/jquery-1.11.3.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="js/bootstrap.min.js"></script>
-	
+  </div>
+</div>
+
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Sangucheto - BigChegusanRecords - 2016</p>
+</footer>
+
+<script>
+
+function hola(elem){
+	name = $(elem).data('name');
+	document.getElementById("ingrediente").value = name;
+}
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
 </body>
 </html>
+
+

@@ -3,27 +3,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>-- Sanguchetto --</title>
-
-<!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>[SanguCheto]</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link href="css/sangucheto.css" rel="stylesheet">  
 </head>
-<body>
-	<div class="container theme-showcase" role="main">
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
-		<!-- Main jumbotron for a primary marketing message or call to action -->
-		<div class="jumbotron">
-			<h1>Selecciona los ingredientes</h1>
-			
-			<table class="table">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand sangucheto" href="#myPage">SanguCheto</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="fondo-naranja"><a href="limpiarSanguche"><span class="glyphicon glyphicon-trash"></span>VACIAR</a></li>
+        <li class="fondo-verde"><a href="comprarSanguche"><span class="glyphicon glyphicon-piggy-bank"></span>COMPRAR SanguCheto</a></li>
+        <li><a href="loginAdmin"><span class="glyphicon glyphicon-user"></span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Container (About Section) -->
+<div id="about" class="container-fluid">
+  <div class="row">
+      <h1 class="text-center">Arma tu SanguCheto!</h1>
+      <hr>
+    <div class="col-sm-6">
+    <h4 class="text-center">Ingredientes Disponibles</h4>
+      <table class="table">
 				<thead>
 					<tr>
-						<th>Nombre</th>
-						<th>Precio</th>
-						<th>Tipo</th>
+						<th class="text-center">Nombre</th>
+						<th class="text-center">Precio</th>
+						<th class="text-center">Tipo</th>
 						
 						<th></th>
 						
@@ -45,17 +71,16 @@
 					</c:forEach>
 				</tbody>
 			</table>
-		</div>
-		
-		<div class="row">
-			<div class="col-xs-6">
+	</div>
+ <div class="col-sm-6 text-center" >
+ 		
 				
-				<h1>Ingredientes seleccionados</h1>
+				<h4>Tu Sangucheto</h4>
 				
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Nombre</th>
+							<th class="text-center">Ingrediente</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -67,17 +92,11 @@
 						</c:forEach>
 					</tbody>
 				</table>
-			</div>
 			
-			
-			<div class="col-xs-6">
-				
-				<h1>Condimentos seleccionados</h1>
-				
 				<table class="table">
 					<thead>
 						<tr>
-							<th>Nombre</th>
+							<th class="text-center">Aderezo	</th>
 													
 						</tr>
 					</thead>
@@ -90,21 +109,63 @@
 						</c:forEach>
 					</tbody>
 				</table>
-			</div>
-		</div>
 		<div class="page-header">
 			<div class="panel-body">
-				<label for="precio"><h3>Precio: </h3></label>
-				<input id="precio"   name="precio" type="text" value="${precio}" class="panel-body" disabled>
+				<div class="text-container">
+  				<input id="precio"   name="precio" type="text" value="${precio}" class="panel-body text-center" disabled></input>
+  				<span id="clearBtn1" class="clearBtn glyphicon glyphicon-usd"></span>
+				</div>
+				
 		  	</div>
-			
-			<a href="index"><button class="btn btn-default btn-lg">Volver</button></a>
-			<a href="limpiarSanguche"><button class="btn btn-danger btn-lg">Limpiar</button></a>
-			<a href="comprarSanguche"><button class="btn btn-success btn-lg">Comprar</button></a>
-		</div>
-	</div>
+ </div>
+</div>
+</div>
+<div class="text-center">
+  <a href="#myPage" title="To Top" class="text-center">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p class="text-center">Sangucheto - BigChegusanRecords - 2016</p>
+  </div>
+</div>
 
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
 	<script src="js/bootstrap.min.js"></script>
