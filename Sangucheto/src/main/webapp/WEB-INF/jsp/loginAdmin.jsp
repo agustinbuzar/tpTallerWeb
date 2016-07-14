@@ -44,14 +44,15 @@
   <div class="col-sm-3"></div>
   <div class="col-sm-6">
 			<form:form method="post" action="validaAdmin" commandName="admin" role ="form">
+			
 				<div class="form-group">
-					<form:label path="user" for="user">Usuario:</form:label>
-					<form:input path="user" type="text" class="form-control" id="user"/>
+					<form:label class ="asd" path="user" for="user">Usuario:</form:label>
+					<form:input path="user" type="text" class="form-control text-center" id="user"/>
 				</div>
 				
 				<div class="form-group">
 					<form:label path="pass" for="pass">Contraseña:</form:label>
-					<form:input path="pass" type="password" class="form-control" id="pass"/>
+					<form:input path="pass" type="password" class="form-control text-center" id="pass"/>
 				</div>		
 				<button type="submit" class="btn btn-warning">Ingresar</button>
 			</form:form>

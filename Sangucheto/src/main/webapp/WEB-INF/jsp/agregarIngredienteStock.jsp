@@ -28,11 +28,12 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand sangucheto" href="indexAdmin">SanguCheto</a>
-        <p class="navbar-brand text-verde">-[GOD MODE]-</p>     
+        <p class="navbar-brand text-verde">-[GOD MODE]-</p>
+        <h3 class="navbar-text texto-blanco">Alta Ingrediente</h3>     
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-      	<li><a href="agregarIngredienteStock">ALTA&nbsp;</a></li>
+       	<li><a href="agregarIngredienteStock">ALTA&nbsp;</a></li>
       	<li><a href="verStock">STOCK&nbsp;</a></li>
         <li><a href="armarSanguche">ARMAR</a></li>
         <li><a href="index"><span class="glyphicon glyphicon-log-out"></span></a></li>
@@ -40,14 +41,9 @@
     </div>
   </div>
 </nav>
-
-<div class="jumbotron-admin text-center">
-  <h1 class="sangucheto">SanguCheto</h1>
-</div>
-
+<br><br><br>
 <!-- Container (About Section) -->
 <div id="about" class="text-center">
-<h1 class="text-center">Agregar Ingrediente Stock</h1>
   <div class="row">
 
 						<form:form method="post" action="agregarIngrediente" commandName="ingrediente" role ="form" id="ingredientes">
@@ -70,7 +66,7 @@
 				<div class="form-group">
 					<form:label path="tipo" for="tipo">Tipo:</form:label>
 						<div class="radio">
-							<form:radiobutton path="tipo" value="INGREDIENTE"/>Ingrediente
+							<form:radiobutton path="tipo" value="INGREDIENTE" required="true"/>Ingrediente
 						</div>
 						<div class="radio">
 							<form:radiobutton path="tipo" value="CONDIMENTO"/>Condimento
@@ -78,21 +74,12 @@
 				</div>
 				<br/>
 		
-				<button type="submit" class="btn btn-lg btn-success" id="agregar">Agregar</button>
-				<a href="indexAdmin"><button class="btn btn-lg btn-danger">Cancelar</button></a>	
+				<button style="display: block; width: 100%;" type="submit" class="btn btn-lg btn-success" id="agregar">Agregar</button>	
 			</form:form>
 
 	</div>
   </div>
-</div>
 
-
-<footer class="container-fluid text-center">
-  <a href="#myPage" title="To Top">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a>
-  <p>Sangucheto - BigChegusanRecords - 2016</p>
-</footer>
 
 <script>
 $(document).ready(function(){

@@ -25,12 +25,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand sangucheto" href="#myPage">SanguCheto</a>
+      <a class="navbar-brand sangucheto" href="index">SanguCheto</a>
     </div>
+    <h3 class="navbar-text texto-blanco">Arma tu SanguCheto &nbsp;&nbsp;&nbsp;</h3> 
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li class="fondo-naranja"><a href="limpiarSanguche"><span class="glyphicon glyphicon-trash"></span>VACIAR</a></li>
-        <li class="fondo-verde"><a href="comprarSanguche"><span class="glyphicon glyphicon-piggy-bank"></span>COMPRAR SanguCheto</a></li>
+        <li class="fondo-verde"><a data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-piggy-bank"></span>COMPRAR SanguCheto</a></li>
         <li><a href="loginAdmin"><span class="glyphicon glyphicon-user"></span></a></li>
       </ul>
     </div>
@@ -40,8 +41,6 @@
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
   <div class="row">
-      <h1 class="text-center">Arma tu SanguCheto!</h1>
-      <hr>
     <div class="col-sm-6">
     <h4 class="text-center">Ingredientes Disponibles</h4>
       <table class="table">
@@ -62,10 +61,10 @@
 							<td>$ ${item.key.precio}</td>
 							<td>${item.key.tipo}</td>
 							<c:if test="${item.value > 0}">
-							<td><td><a href="agregarIngredienteSanguche?ingredientes=${item.key.nombre}"><button type="button" class="btn btn-info">Agregar</button></a></td></td>
+							<td><td><a href="agregarIngredienteSanguche?ingredientes=${item.key.nombre}"><button type="button" class="btn btn-info">Agregar</button></a></td>
 							</c:if>
 							<c:if test="${item.value == 0}">
-							<td><td><button type="button" class="btn btn-danger" disabled>Sin Stock</button></a></td></td>
+							<td><td><a><button type="button" class="btn btn-danger" disabled>Sin Stock</button></a></td>
 							</c:if>
 						</tr>
 					</c:forEach>
@@ -115,7 +114,6 @@
   				<input id="precio"   name="precio" type="text" value="${precio}" class="panel-body text-center" disabled></input>
   				<span id="clearBtn1" class="clearBtn glyphicon glyphicon-usd"></span>
 				</div>
-				
 		  	</div>
  </div>
 </div>
@@ -126,6 +124,65 @@
   </a>
   <p class="text-center">Sangucheto - BigChegusanRecords - 2016</p>
   </div>
+ </div>
+<!--   /////////////////////////////////////////////// -->
+  	<div class="modal fade" id="myModal" role="dialog">
+		    <div class="modal-dialog text-center">
+		      <div class="modal-content">
+		        <div class="modal-header">
+		        <br>
+		        <h1 class="sangucheto">SanguCheto</h1>
+		        <br>
+		          <h4 class="modal-title">Disfruta tu SanguCheto!</h4>
+		        </div>
+		        <div class="modal-body">
+		        
+		        <table class="table">
+					<thead>
+						<tr>
+							<th class="text-center">Ingrediente</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${ingredientesAgregados}" var="ingre">
+							<tr>
+								<td>${ingre.nombre}<img src="${ingre.imagen}"  class="img-circle" width="52" height="45"></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+			
+				<table class="table">
+					<thead>
+						<tr>
+							<th class="text-center">Aderezo	</th>
+													
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${condimentosAgregados}" var="condi">
+							<tr>
+								<td>${condi.nombre}<img src="${condi.imagen}"  class="img-circle" width="52" height="45"></td>
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+		<div class="page-header">
+			<div class="panel-body">
+				<div class="text-container">
+				<h1>&#36; ${precio}</h1>
+  				
+				</div>
+				
+				</div>
+		        </div>
+		        <div class="modal-footer">
+		        <a href="comprarSanguche"><button type="button" class="btn btn-danger">Cerrar</button></a>		          
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		  
 </div>
 
 

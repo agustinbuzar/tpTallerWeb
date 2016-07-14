@@ -44,8 +44,7 @@
   <div class="col-sm-3"></div>
   <div class="col-sm-6">
 
-			<a href="armarSanguche"><button type="button" class="btn btn-default">Armar sanguche</button></a>
-			<a href="agregarIngredienteStock"><button type="button" class="btn btn-default">Alta Ingrediente</button></a>
+			<a href="agregarIngredienteStock"><button type="button" class="btn btn-default">Alta Ingrediente</button></a> &nbsp;
 			<a href="verStock"><button type="button" class="btn btn-default">Stock Ingrediente</button></a>
 			<br><br>
 			<a href="autoCompletar"><button type="button" class="btn btn-success">Boton Magico</button></a>	

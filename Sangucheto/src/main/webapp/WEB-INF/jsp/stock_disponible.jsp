@@ -27,7 +27,8 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand sangucheto" href="indexAdmin">SanguCheto</a>
-        <p class="navbar-brand text-verde">-[GOD MODE]-</p>     
+        <p class="navbar-brand text-verde">-[GOD MODE]-</p>
+        <h3 class="navbar-text texto-blanco">STOCK</h3>    
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -39,17 +40,13 @@
     </div>
   </div>
 </nav>
-
-<div class="jumbotron-admin text-center">
-  <h1 class="sangucheto">SanguCheto</h1>
-</div>
+<br><br><br>
 
 <!-- Container (About Section) -->
 <div id="about" class="text-center">
-<h1 class="text-center">Ingredientes</h1>
   <div class="row">
 
-			<table class="table class="text-center"">
+			<table class="table text-center">
 				<thead>
 					<tr>
 						<th class="text-center">Nombre</th>
@@ -67,7 +64,7 @@
 							<td>${item.key.precio}</td>
 							<td>${item.key.tipo}</td>
 							<td>${item.value}</td>
-							<td><button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" data-name="${item.key.nombre}" onclick="hola(this);">Agregar stock</button></td>
+							<td><button style="display: block; width: 100%;" type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" data-name="${item.key.nombre}" onclick="hola(this);">Agregar stock</button></td>
 							<td><a href="eliminarStock?condimento=${item.key.nombre}"><button type="button" class="btn btn-danger">Eliminar</button></a></td>
 						</tr>
 					</c:forEach>
@@ -89,29 +86,23 @@
 							<input type="hidden" id="ingrediente" name="ingrediente" >
 										
 							<label class="active" for="cantidad">Cantidad</label>
-							<input id="cantidad" name="cantidad" type="text" class="form-control"></br>
+							<input id="cantidad" name="cantidad" type="text" class="form-control"><br>
 									
-							<button type="submit" class="btn btn-success">Agregar Stock</button>
+							<button style="display: block; width: 100%;" type="submit" class="btn btn-success">Agregar Stock</button>
 						</form>
 		        </div>
-		        <div class="modal-footer">
-		          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-		        </div>
+<!-- 		        <div class="modal-footer"> -->
+<!-- 		          <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button> -->
+<!-- 		        </div> -->
 		      </div>
 		    </div>
 		  </div>
 
 	</div>
-  </div>
-</div>
 
+<div class="text-center"><a href="#myPage" title="To Top"> <span class="glyphicon glyphicon-chevron-up text-naranja"></span> </a></div>
+  
 
-<footer class="container-fluid text-center">
-  <a href="#myPage" title="To Top">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a>
-  <p>Sangucheto - BigChegusanRecords - 2016</p>
-</footer>
 
 <script>
 

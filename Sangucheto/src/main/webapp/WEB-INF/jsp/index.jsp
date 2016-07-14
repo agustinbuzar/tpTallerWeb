@@ -44,15 +44,14 @@
 
 <!-- Container (About Section) -->
 <div id="about" class="container-fluid">
-  <div class="row">
-    <div class="col-sm-8">
+  <div class="row text-center">
+      <img style="width: 15%;"alt="" src="http://img1.cookinglight.timeinc.net/sites/default/files/styles/500xvariable/public/image/2011/07/1107w-panerabread-sandwich-x.jpg?itok=NAlbDWPv" class="img-circle chegusan"/>
+    <div>
       <h2>Que es SanguCheto?</h2><br>
       <p>SanguCheto es la primera aplicacion web que te permite armar tu sanguche favorito y recibirlo en la puerta de tu casa!</p>
       <a href="armarSanguche" class="btn btn-default">Armar Sanguche</a>
     </div>
-    <div class="col-sm-4">
-      <img alt="" src="http://img1.cookinglight.timeinc.net/sites/default/files/styles/500xvariable/public/image/2011/07/1107w-panerabread-sandwich-x.jpg?itok=NAlbDWPv" class="img-circle chegusan"/>
-    </div>
+
   </div>
 </div>
 
